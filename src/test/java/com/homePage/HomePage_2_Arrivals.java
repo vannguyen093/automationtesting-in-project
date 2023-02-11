@@ -24,8 +24,8 @@ public class HomePage_2_Arrivals extends BaseTest {
     ProductPagePO productPage;
 
     @Parameters({"browser", "evnName", "ipAddress", "portNumber", "osName", "osVersion"})
-    @BeforeClass
-    public void beforeClass(@Optional("firefox") String browserName, @Optional("local") String evnName, @Optional("Windows") String osName, @Optional("10") String osVersion, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber) {
+    @BeforeMethod
+    public void beforeMethod(@Optional("firefox") String browserName, @Optional("local") String evnName, @Optional("Windows") String osName, @Optional("10") String osVersion, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber) {
         String environmentName = System.getProperty("evn");
         ConfigFactory.setProperty("env", environmentName);
         env = ConfigFactory.create(Environment.class);
@@ -43,24 +43,24 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "There should be a description regarding that book the user clicked on");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
-        homePage.clickToHeaderLinkByText(driver, "Shop");
+        homePage.clickOnHeaderLinkByText(driver, "Shop");
         shopPage = PageGenerateManager.getShopPage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
-        shopPage.clickToBreadCrumbsByText(driver, "Home");
+        shopPage.clickOnBreadCrumbsByText(driver, "Home");
         homePage = PageGenerateManager.getHomePage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 03: Verify that the homepage has three arrivals only");
         verifyEquals(homePage.getArrivalSize(), 3);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 04: Click on the image have title named 'Mastering Javascript'");
-        productPage = homePage.clickToImageByTitle("Mastering JavaScript");
+        productPage = homePage.clickOnImageByTitle("Mastering JavaScript");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 05: Verify that the system navigate to product page and 'Add to basket' button is displayed");
         verifyTrue(productPage.isAddToBasketBtnDisplayed());
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 06: Click to the 'Description' tab");
-        productPage.clickToTheTabByClass("description_tab");
+        productPage.clickOnTheTabByClass("description_tab");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 07: Verify the description title is displayed");
         verifyEquals(productPage.getTabTitleText("Product Description"), "Product Description");
@@ -71,24 +71,24 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "There should be a review regarding that book the user clicked on");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
-        productPage.clickToHeaderLinkByText(driver, "Shop");
+        homePage.clickOnHeaderLinkByText(driver, "Shop");
         shopPage = PageGenerateManager.getShopPage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
-        shopPage.clickToBreadCrumbsByText(driver, "Home");
+        shopPage.clickOnBreadCrumbsByText(driver, "Home");
         homePage = PageGenerateManager.getHomePage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 03: Verify that the homepage has three arrivals only");
         verifyEquals(homePage.getArrivalSize(), 3);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 04: Click on the image have title named 'Mastering Javascript'");
-        productPage = homePage.clickToImageByTitle("Mastering JavaScript");
+        productPage = homePage.clickOnImageByTitle("Mastering JavaScript");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 05: Verify that the system navigate to product page and 'Add to basket' button is displayed");
         verifyTrue(productPage.isAddToBasketBtnDisplayed());
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 06: Click to the 'Review' tab");
-        productPage.clickToTheTabByClass("reviews_tab");
+        productPage.clickOnTheTabByClass("reviews_tab");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 07: Verify the description title is displayed");
         verifyEquals(productPage.getTabTitleText("Reviews"), "Reviews");
@@ -99,24 +99,24 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "User can add that book to his basket by clicking 'Add to basket' button");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
-        productPage.clickToHeaderLinkByText(driver, "Shop");
+        productPage.clickOnHeaderLinkByText(driver, "Shop");
         shopPage = PageGenerateManager.getShopPage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
-        shopPage.clickToBreadCrumbsByText(driver, "Home");
+        shopPage.clickOnBreadCrumbsByText(driver, "Home");
         homePage = PageGenerateManager.getHomePage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 03: Verify that the homepage has three arrivals only");
         verifyEquals(homePage.getArrivalSize(), 3);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 04: Click on the image have title named 'Mastering Javascript'");
-        productPage = homePage.clickToImageByTitle("Mastering JavaScript");
+        productPage = homePage.clickOnImageByTitle("Mastering JavaScript");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 05: Verify that the system navigate to product page and 'Add to basket' button is displayed");
         verifyTrue(productPage.isAddToBasketBtnDisplayed());
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 06: Click on the 'Add to basket' button");
-        productPage.clickToAddToBasketButton();
+        productPage.clickOnAddToBasketButton();
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 07: Verify that success message is displayed");
         verifyTrue(productPage.isSuccessMessageTextAtProductPageDisplayed());
@@ -127,18 +127,18 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "User try to add more books than the books in stock");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
-        homePage.clickToHeaderLinkByText(driver, "Shop");
+        productPage.clickOnHeaderLinkByText(driver, "Shop");
         shopPage = PageGenerateManager.getShopPage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
-        shopPage.clickToBreadCrumbsByText(driver, "Home");
+        shopPage.clickOnBreadCrumbsByText(driver, "Home");
         homePage = PageGenerateManager.getHomePage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 03: Verify that the homepage has three arrivals only");
         verifyEquals(homePage.getArrivalSize(), 3);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 04: Click on the image have title named 'Mastering Javascript'");
-        productPage = homePage.clickToImageByTitle("Mastering JavaScript");
+        productPage = homePage.clickOnImageByTitle("Mastering JavaScript");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 05: Verify that the system navigate to product page and 'Add to basket' button is displayed");
         verifyTrue(productPage.isAddToBasketBtnDisplayed());
@@ -149,14 +149,54 @@ public class HomePage_2_Arrivals extends BaseTest {
         productPage.inputToQuantityTextBox(productQuantity);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 06: Click on the 'Add to basket' button");
-        productPage.clickToAddToBasketButton();
+        productPage.clickOnAddToBasketButton();
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 07: Verify that error message is displayed");
         verifyEquals(productPage.getErrorMessageAtProductPage(), "Vui lòng chọn một giá trị không lớn hơn " + productStock + ".");
     }
 
-    @AfterClass(alwaysRun = true)
-    public void afterClass() {
+    @Test
+    public void HomePage2_05_Arrival_AddToBasket_Item(Method method) {
+        ExtentTestManager.startTest(method.getName(), "Verify the item should display in check out page after clicking 'Add to basket' button");
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
+        productPage.clickOnHeaderLinkByText(driver, "Shop");
+        shopPage = PageGenerateManager.getShopPage(driver);
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
+        shopPage.clickOnBreadCrumbsByText(driver, "Home");
+        homePage = PageGenerateManager.getHomePage(driver);
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 03: Verify that the homepage has three arrivals only");
+        verifyEquals(homePage.getArrivalSize(), 3);
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 04: Click on the image have title named 'Mastering Javascript'");
+        productPage = homePage.clickOnImageByTitle("Mastering JavaScript");
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 05: Verify that the system navigate to product page and 'Add to basket' button is displayed");
+        verifyTrue(productPage.isAddToBasketBtnDisplayed());
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 05: Input 1 into quantity text box");
+        productPage.inputToQuantityTextBox("1");
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 06: Click on the 'Add to basket' button");
+        productPage.clickOnAddToBasketButton();
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 07: Verify that error message is displayed");
+        verifyTrue(productPage.isSuccessMessageTextAtProductPageDisplayed());
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 08: Verify that 1 item is displayed at mini cart");
+        verifyEquals(productPage.getProductItemTextAtMiniCart(), "1");
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 09: Click on the item at mini cart");
+        productPage.clickOnItemAtMiniCart(driver);
+
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 10: Verify that the Basket Totals text is displayed");
+        verifyTrue(productPage.isBasketTotalsTextDisplayed());
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void afterMethod() {
         closeBrowserAndDriver();
     }
 }
