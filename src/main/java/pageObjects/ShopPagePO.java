@@ -11,7 +11,7 @@ public class ShopPagePO extends BasePage {
         this.driver = driver;
     }
 
-    public void clickToBreadCrumbsByText(WebDriver driver, String breadCrumbsText) {
+    public void clickOnBreadCrumbsByText(WebDriver driver, String breadCrumbsText) {
         waitForElementVisible(driver, ShopPageUI.BREAD_CRUMBS_LINK_TEXT, breadCrumbsText);
         clickToElement(driver, ShopPageUI.BREAD_CRUMBS_LINK_TEXT, breadCrumbsText);
     }

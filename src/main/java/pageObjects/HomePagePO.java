@@ -21,7 +21,7 @@ public class HomePagePO extends BasePage {
         return getElementSize(driver, HomePageUI.ARRIVAL_TITLE);
     }
 
-    public ProductPagePO clickToImageByTitle(String imageText) {
+    public ProductPagePO clickOnImageByTitle(String imageText) {
         waitForElementClickable(driver, HomePageUI.ARRIVAL_IMAGE_TEXT, imageText);
         clickToElement(driver, HomePageUI.ARRIVAL_IMAGE_TEXT, imageText);
         return PageGenerateManager.getProductPage(driver);

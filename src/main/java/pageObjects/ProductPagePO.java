@@ -16,7 +16,7 @@ public class ProductPagePO extends BasePage {
         return isElementDisplayed(driver, ProductPageUI.ADD_TO_BASKET_BUTTON);
     }
 
-    public void clickToAddToBasketButton() {
+    public void clickOnAddToBasketButton() {
         waitForElementClickable(driver, ProductPageUI.ADD_TO_BASKET_BUTTON);
         clickToElement(driver, ProductPageUI.ADD_TO_BASKET_BUTTON);
     }
@@ -26,7 +26,7 @@ public class ProductPagePO extends BasePage {
         return isElementDisplayed(driver, ProductPageUI.SUCCESS_MESSAGE_TEXT);
     }
 
-    public void clickToTheTabByClass(String tabClass) {
+    public void clickOnTheTabByClass(String tabClass) {
         waitForElementClickable(driver, ProductPageUI.TAB_BY_CLASS, tabClass);
         clickToElement(driver, ProductPageUI.TAB_BY_CLASS, tabClass);
     }
@@ -50,5 +50,16 @@ public class ProductPagePO extends BasePage {
     public String getErrorMessageAtProductPage() {
         waitForElementVisible(driver, ProductPageUI.PRODUCT_QUANTITY_TEXTBOX);
         return getElementAttribute(driver, ProductPageUI.PRODUCT_QUANTITY_TEXTBOX, "validationMessage");
+    }
+
+    public String getProductItemTextAtMiniCart() {
+        waitForElementVisible(driver, ProductPageUI.PRODUCT_NUMBER_ITEM_TEXT);
+        String[] productItems = getElementText(driver, ProductPageUI.PRODUCT_NUMBER_ITEM_TEXT).split(" ");
+        return productItems[0];
+    }
+
+    public boolean isBasketTotalsTextDisplayed() {
+        waitForElementVisible(driver, ProductPageUI.BASKET_TOTALS_TEXT);
+        return isElementDisplayed(driver, ProductPageUI.BASKET_TOTALS_TEXT);
     }
 }

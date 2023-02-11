@@ -1,17 +1,17 @@
-1676081988298	geckodriver	INFO	Listening on 127.0.0.1:22830
-1676081999809	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Van Nguyen\\AppData\\Local\\Temp\\rust_mozprofileNBRz3u"
-1676082000695	Marionette	INFO	Marionette enabled
+1676106353106	geckodriver	INFO	Listening on 127.0.0.1:33206
+1676106364340	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\Van Nguyen\\AppData\\Local\\Temp\\rust_mozprofilemUGye2"
+1676106365199	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1676082000700	Marionette	INFO	Listening on port 56664
-Read port: 56664
-1676082000954	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-JavaScript warning: moz-extension://1b200365-c599-4b96-82c8-291203a383e2/abp-background.js, line 0: Successfully compiled asm.js code (total compilation time 1ms)
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Van Nguyen\\AppData\\Local\\Temp\\rust_mozprofileNBRz3u\\search.json.mozlz4", (void 0)))
+1676106365204	Marionette	INFO	Listening on port 62859
+Read port: 62859
+1676106365406	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: moz-extension://490e2c02-44d3-4614-825d-23be7090823f/abp-background.js, line 0: Successfully compiled asm.js code (total compilation time 1ms)
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Van Nguyen\\AppData\\Local\\Temp\\rust_mozprofilemUGye2\\search.json.mozlz4", (void 0)))
 JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
 JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://practice.automationtesting.in."
-1676082016896	Marionette	INFO	Stopped listening on port 56664
-JavaScript error: resource://gre/modules/ConduitsChild.jsm, line 115: Error: sendRemoveListener on closed conduit jid1-NIfFY2CA8fy1tg@jetpack.137438953476
+1676106375487	Marionette	INFO	Stopped listening on port 62859
+JavaScript error: resource://gre/modules/ConduitsChild.jsm, line 115: Error: sendRemoveListener on closed conduit jid1-NIfFY2CA8fy1tg@jetpack.137438953480
 Dynamically enable window occlusion 1
 WARNING: A blocker encountered an error while we were waiting.
           Blocker:  Waiting for ping task

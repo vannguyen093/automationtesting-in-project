@@ -7,4 +7,6 @@ public class ProductPageUI {
     public static final String TAB_TITLE_TEXT = "xpath=//h2[normalize-space()='%s']";
     public static final String PRODUCT_STOCK_TEXT = "xpath=//p[@class='stock in-stock']";
     public static final String PRODUCT_QUANTITY_TEXTBOX = "xpath=//input[@title='Qty']";
+    public static final String PRODUCT_NUMBER_ITEM_TEXT = "xpath=//span[@class='cartcontents']";
+    public static final String BASKET_TOTALS_TEXT = "xpath=//h2[normalize-space()='Basket Totals']";
 }

@@ -1004,7 +1004,7 @@ public class BasePage {
      * @param driver
      * @param menuText
      */
-    public void clickToHeaderLinkByText(WebDriver driver, String menuText) {
+    public void clickOnHeaderLinkByText(WebDriver driver, String menuText) {
         waitForElementVisible(driver, BaseUI.HEADER_MENU_LINK_TEXT, menuText);
         clickToElement(driver, BaseUI.HEADER_MENU_LINK_TEXT, menuText);
     }
@@ -1025,5 +1025,14 @@ public class BasePage {
      */
     public void closeAllWindowWithoutParent(WebDriver driver, String parentID){
         closeAllWindowsWithoutParent(driver, getParentId(driver));
+    }
+
+    /**
+     * Click on the mini cart at header menu to navigate to check out page
+     * @param driver
+     */
+    public void clickOnItemAtMiniCart(WebDriver driver) {
+        waitForElementClickable(driver, BaseUI.MINI_CART);
+        clickToElement(driver, BaseUI.MINI_CART);
     }
 }
