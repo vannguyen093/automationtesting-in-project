@@ -16,7 +16,6 @@ import java.lang.reflect.Method;
 
 public class HomePage_2_Arrivals extends BaseTest {
 
-//    private CustomerData[] userData;
     private Environment env;
     private WebDriver driver;
     HomePagePO homePage;
@@ -31,7 +30,6 @@ public class HomePage_2_Arrivals extends BaseTest {
         env = ConfigFactory.create(Environment.class);
 
         driver = getBrowserDriver(browserName, env.automationTestingInUrl(), evnName, osName, osVersion, ipAddress, portNumber);
-//        userData = UserDataMapper.getUserData("abc");
 
         homePage = PageGenerateManager.getHomePage(driver);
         String parentID = homePage.getParentId(driver);
@@ -99,7 +97,7 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "User can add that book to his basket by clicking 'Add to basket' button");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
-        productPage.clickOnHeaderLinkByText(driver, "Shop");
+        homePage.clickOnHeaderLinkByText(driver, "Shop");
         shopPage = PageGenerateManager.getShopPage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
@@ -127,7 +125,7 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "User try to add more books than the books in stock");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
-        productPage.clickOnHeaderLinkByText(driver, "Shop");
+        homePage.clickOnHeaderLinkByText(driver, "Shop");
         shopPage = PageGenerateManager.getShopPage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
@@ -160,7 +158,7 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "Verify the item should display in check out page after clicking 'Add to basket' button");
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 01: Click to 'Shop' link at header menu");
-        productPage.clickOnHeaderLinkByText(driver, "Shop");
+        homePage.clickOnHeaderLinkByText(driver, "Shop");
         shopPage = PageGenerateManager.getShopPage(driver);
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 02: Click to 'Home' link at breadcrumbs menu");
@@ -182,7 +180,7 @@ public class HomePage_2_Arrivals extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 06: Click on the 'Add to basket' button");
         productPage.clickOnAddToBasketButton();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 07: Verify that error message is displayed");
+        ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 07: Verify that success message is displayed");
         verifyTrue(productPage.isSuccessMessageTextAtProductPageDisplayed());
 
         ExtentTestManager.getTest().log(Status.INFO, "Home Page - Step 08: Verify that 1 item is displayed at mini cart");
